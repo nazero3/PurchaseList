@@ -24,10 +24,14 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const onSaveNewExpenseHandler = (enteredValue) => {
+    console.log('in app js');
+    console.log(enteredValue);
+  }
   return (
     <div>
       
-      <NewExpense/>
+      <NewExpense onSaveNewExpense={onSaveNewExpenseHandler}/>
       <Expenses item={expenses}/>
     </div>
     
