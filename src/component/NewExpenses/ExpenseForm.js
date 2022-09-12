@@ -16,6 +16,7 @@ const ExpenseForm = (props) => {
   };
 
   const dateChangeHandler = (event) => {
+    console.log("DATE VALUE", event.target.value);
     savesDate(event.target.value);
   };
   const submitHandler = (event) => {
@@ -25,11 +26,12 @@ const ExpenseForm = (props) => {
       amout: amountDefault,
       date: new Date(dateDefault),
     };
+    console.log(expenseData);
     props.onSaveExpenseForm(expenseData);
 
-    savesTitle('');
-    savesAmount('');
-    savesDate('');
+    //savesTitle("");
+    //savesAmount("");
+    //savesDate("");
   };
 
   return (
@@ -37,12 +39,15 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input value={titleDefault} type="text" onChange={titleChangeHandler} />
+          <input
+            value={titleDefault}
+            type="text"
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
           <input
-            
             type="number"
             value={amountDefault}
             min="0.01"
@@ -53,7 +58,6 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label>Date</label>
           <input
-            
             type="date"
             value={dateDefault}
             min="2019-02-16"
