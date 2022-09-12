@@ -1,5 +1,4 @@
-
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Expenses from "./component/Expenses/Expenses";
 import NewExpense from "./component/NewExpenses/NewExpense";
 const initial_expenses = [
@@ -21,21 +20,22 @@ const initial_expenses = [
     title: "New Desk (Wooden)",
     amount: 450,
     date: new Date(2021, 5, 12),
-  }];
+  }
+];
 function App() {
   const [expenses, setExpenses] = useState(initial_expenses);
-  
-  
-  const onSaveNewExpenseHandler = (enteredValue) => {
-    setExpenses();
-  }
+
+  const onSaveNewExpenseHandler = (expense) => {
+    setExpenses((prevexpense) => {
+      
+      return [expense, ...prevexpense];
+    });
+  };
   return (
     <div>
-      
-      <NewExpense onSaveNewExpense={onSaveNewExpenseHandler}/>
-      <Expenses item={expenses}/>
+      <NewExpense onSaveNewExpense={onSaveNewExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
-    
   );
 }
 
