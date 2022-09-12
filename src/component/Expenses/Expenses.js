@@ -5,9 +5,10 @@ import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 
 const Expenses = (props) => {
+
   const [defaultYear, filteredYear] = useState('2020');
   const SaveExpensesFilter = (enteredY) => {
-    //console.log("nice v2");
+    
     filteredYear(enteredY);
   };
   return (
@@ -19,11 +20,13 @@ const Expenses = (props) => {
         />
         {props.item.map((expense) => (
           <ExpenseItem 
-            title={expense.title} 
+            title={expense.title}
             amount={expense.amount}
             date={expense.date}
             />
+            
         ))}
+        
       </Card>
     </div>
   );

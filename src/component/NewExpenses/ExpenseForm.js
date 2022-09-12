@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [titleDefault, savesTitle] = useState("");
-  const [amountDefault, savesAmount] = useState("");
-  const [dateDefault, savesDate] = useState("");
+  const [titleDefault, savesTitle] = useState('');
+  const [amountDefault, savesAmount] = useState('');
+  const [dateDefault, savesDate] = useState('');
 
   const titleChangeHandler = (event) => {
     savesTitle(event.target.value);
@@ -22,11 +22,12 @@ const ExpenseForm = (props) => {
     event.preventDefault();
     const expenseData = {
       title: titleDefault,
-      amout: amountDefault,
+      amount: amountDefault,
       date: new Date(dateDefault),
     };
-    // console.log(expenseData);
+    
     props.onSaveExpenseForm(expenseData);
+
     savesTitle('');
     savesAmount('');
     savesDate('');
@@ -47,7 +48,7 @@ const ExpenseForm = (props) => {
           <label>Amount</label>
           <input
             value={amountDefault}
-            type="number"
+            type='number'
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
