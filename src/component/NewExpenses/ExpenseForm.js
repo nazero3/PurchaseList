@@ -3,7 +3,6 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   const [titleDefault, savesTitle] = useState("");
-
   const [amountDefault, savesAmount] = useState("");
   const [dateDefault, savesDate] = useState("");
 
@@ -16,9 +15,9 @@ const ExpenseForm = (props) => {
   };
 
   const dateChangeHandler = (event) => {
-    console.log("DATE VALUE", event.target.value);
     savesDate(event.target.value);
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
@@ -26,12 +25,11 @@ const ExpenseForm = (props) => {
       amout: amountDefault,
       date: new Date(dateDefault),
     };
-    console.log(expenseData);
+    // console.log(expenseData);
     props.onSaveExpenseForm(expenseData);
-
-    //savesTitle("");
-    //savesAmount("");
-    //savesDate("");
+    savesTitle('');
+    savesAmount('');
+    savesDate('');
   };
 
   return (
@@ -48,8 +46,8 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label>Amount</label>
           <input
-            type="number"
             value={amountDefault}
+            type="number"
             min="0.01"
             step="0.01"
             onChange={amountChangeHandler}
