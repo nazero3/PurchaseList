@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [titleDefault, savesTitle] = useState("");
 
-  const [amountDefault, savesAmount] = useState("");
-  const [dateDefault, savesDate] = useState("");
+  const [titleDefault, savesTitle] = useState('');
+  const [amountDefault, savesAmount] = useState('');
+  const [dateDefault, savesDate] = useState('');
 
   const titleChangeHandler = (event) => {
     savesTitle(event.target.value);
@@ -16,22 +16,22 @@ const ExpenseForm = (props) => {
   };
 
   const dateChangeHandler = (event) => {
-    console.log("DATE VALUE", event.target.value);
     savesDate(event.target.value);
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
       title: titleDefault,
-      amout: amountDefault,
+      amount: amountDefault,
       date: new Date(dateDefault),
     };
-    console.log(expenseData);
+    
     props.onSaveExpenseForm(expenseData);
 
-    //savesTitle("");
-    //savesAmount("");
-    //savesDate("");
+    savesTitle('');
+    savesAmount('');
+    savesDate('');
   };
 
   return (

@@ -23,13 +23,14 @@ const initial_expenses = [
   }
 ];
 function App() {
+
   const [expenses, setExpenses] = useState(initial_expenses);
 
   const onSaveNewExpenseHandler = (expense) => {
     setExpenses((prevexpense) => {
-      
       return [expense, ...prevexpense];
     });
+    
   };
   return (
     <div>
