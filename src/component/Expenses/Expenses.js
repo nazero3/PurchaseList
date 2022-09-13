@@ -10,33 +10,27 @@ function Expenses(props) {
     setFilteredYear(selectedYear);
   };
 
-  const defaultYears = props.items.map((expense) => (
-    <ExpenseItem
-      key={expense.id}
-      title={expense.title}
-      amount={expense.amount}
-      date={expense.date}
-    />
-  ));
-  const afternorm = (event) => {
-    console.log(event.target.value);
-    defaultYears.filter(
-      (year) => year.props.date.getFullYear() === event.target.value
-    );
-  };
-
+  
   return (
     <Card className="expenses">
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {defaultYears}
-      {afternorm}
-      {console.log(defaultYears[0].props.date.getFullYear())}
+      {props.items.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      )).filter(
+        (year) => year.props.date.getFullYear() >= filteredYear
+      )}
+
       
     </Card>
   );
-};
+}
 
 export default Expenses;
