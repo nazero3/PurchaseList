@@ -23,7 +23,8 @@ const initial_expenses = [
   },
 ];
 function App() {
-
+  
+  
   const [expenses, setExpenses] = useState(initial_expenses);
 
   const onSaveNewExpenseHandler = (expense) => {
@@ -32,8 +33,10 @@ function App() {
     });
     
   };
+  
   return (
     <div>
+      
       <NewExpense onSaveNewExpense={onSaveNewExpenseHandler} />
       <Expenses items={expenses} />
     </div>
