@@ -22,8 +22,8 @@ function NewExpense(props) {
   }  
   return (
     <div className="new-expense">
-        {!isEditing && <button onClick={setIsEdititngHandler}>Add new Expense</button>}
-        {isEditing && <ExpenseForm onSaveExpenseForm={SaveExpenseFormHandler} onCancel={stopEditingHandler}/>}
+        {!isEditing && (<button onClick={setIsEdititngHandler}>Add new Expense</button>)}
+        {isEditing && (<ExpenseForm onSaveExpenseForm={SaveExpenseFormHandler} onCancel={stopEditingHandler}/>)}
     </div>
   );
 }
